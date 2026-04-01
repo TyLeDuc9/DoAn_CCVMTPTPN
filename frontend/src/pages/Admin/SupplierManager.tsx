@@ -37,7 +37,7 @@ export const SupplierManager = () => {
           onClick={() => navigate("/admin/add/supplier")}
           className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
         >
-          + Add
+          + Thêm
         </button>
       </div>
 
@@ -81,13 +81,13 @@ export const SupplierManager = () => {
 
                   <td className="px-4 py-3 flex justify-center gap-3">
                     <button onClick={()=>navigate(`/admin/edit/supplier/${s._id}`)}  className="text-blue-500 hover:underline">
-                      Edit
+                      Sửa
                     </button>
                     <button
                       onClick={() => handleDelete(s._id)}
                       className="text-red-500 hover:underline"
                     >
-                      Delete
+                    Xóa
                     </button>
                   </td>
                 </tr>

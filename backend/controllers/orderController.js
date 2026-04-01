@@ -1,5 +1,6 @@
 const Order = require('../models/Order');
 const Cart = require('../models/Cart');
+const mongoose = require('mongoose');
 const Product = require('../models/Product');
 const Address = require('../models/Address');
 exports.getAllOrders = async (req, res) => {
@@ -193,16 +194,30 @@ exports.getOrderById = async (req, res) => {
 // Cập nhật trạng thái Order
 exports.updateOrderStatus = async (req, res) => {
   try {
-    const { id } = req.params;
-    const { status } = req.body; // pending, processing, delivered, cancelled
+    const { id } = req.params; // id từ URL /order/:id/status
+    const { status } = req.body;
 
-    const order = await Order.findById(id);
-    if (!order) return res.status(404).json({ message: 'Order not found' });
+    // Check status hợp lệ
+    const validStatuses = ['pending', 'processing', 'delivered', 'cancelled'];
+    if (!validStatuses.includes(status)) {
+      return res.status(400).json({ message: 'Invalid status value' });
+    }
 
-    order.status = status;
-    await order.save();
+    // ✅ Check ObjectId hợp lệ
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: 'Invalid order ID' });
+    }
 
-    res.json(order);
+    // Update trạng thái
+    const updatedOrder = await Order.findByIdAndUpdate(
+      id,
+      { status },
+      { new: true }
+    );
+
+    if (!updatedOrder) return res.status(404).json({ message: 'Order not found' });
+
+    res.json(updatedOrder);
 
   } catch (error) {
     console.error(error);

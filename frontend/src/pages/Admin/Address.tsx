@@ -11,9 +11,7 @@ export const Address = () => {
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Quản lý địa chỉ</h1>
-        <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-          + Add
-        </button>
+
       </div>
 
       {/* List Address */}
