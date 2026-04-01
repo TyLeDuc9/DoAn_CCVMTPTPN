@@ -35,6 +35,7 @@ import { EditSupplier } from "../pages/Admin/EditSupplier";
 import { AddProduct } from "../pages/Admin/AddProduct";
 import { EditProduct } from "../pages/Admin/EditProduct";
 import { OrderManager } from "../pages/Admin/OrderManager";
+import { EditOrder } from "../pages/Admin/EditOrder";
 
 export const AppRoute = () => {
   return (
@@ -87,6 +88,7 @@ export const AppRoute = () => {
           <Route path="edit/supplier/:id" element={<EditSupplier/>} />
           <Route path="add/product" element={<AddProduct/>} />
           <Route path="edit/product/:id" element={<EditProduct/>} />
+          <Route path="edit/order/:id" element={<EditOrder/>} />
         </Route>
       </Route>
     </Routes>

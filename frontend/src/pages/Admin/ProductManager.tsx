@@ -36,7 +36,7 @@ export const ProductManager = () => {
           onClick={() => navigate("/admin/add/product")}
           className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
         >
-          + Add
+          + Thêm
         </button>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -48,14 +48,14 @@ export const ProductManager = () => {
                 onClick={() => navigate(`/admin/edit/product/${product._id}`)}
                 className="text-blue-500 hover:underline"
               >
-                Edit
+                Sửa 
               </button>
               <button
                 onClick={() => handleDelete(product._id)}
                 disabled={deleting}
                 className="text-red-500 hover:underline disabled:opacity-50"
               >
-                {deleting ? "Deleting..." : "Delete"}
+                {deleting ? "Đang xóa..." : "Xóa"}
               </button>
             </td>
           </div>

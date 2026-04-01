@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 
 const authRoute = require('./routes/authRoute');
-const categoryRoute = require('./routes/categoryRoute');
+// const categoryRoute = require('./routes/categoryRoute');
 const supplierRoute = require('./routes/supplierRoute');
 const productRoute = require('./routes/productRoute');
 const userRoute = require('./routes/userRoute');
@@ -41,11 +41,11 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use('/auth', authRoute);
-app.use('/category', categoryRoute);
+// app.use('/category', categoryRoute);
+app.use('/cart', cartRoute);
 app.use('/supplier', supplierRoute);
 app.use('/product', productRoute);
 app.use('/user', userRoute);
-app.use('/cart', cartRoute);
 app.use('/order', orderRoute);
 app.use('/address', addressRoute);
 
