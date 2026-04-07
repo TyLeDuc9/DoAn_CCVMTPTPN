@@ -32,6 +32,8 @@ app.use((req, res, next) => {
 app.use(cors({
   origin: [
     "http://localhost:5173",
+    "https://do-an-ccvmtptpn.web.app",
+    "https://do-an-ccvmtptpn.firebaseapp.com"
   ],
   credentials: true
 }));
