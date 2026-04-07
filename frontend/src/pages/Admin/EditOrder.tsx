@@ -21,7 +21,7 @@ export const EditOrder = () => {
     }
 
     try {
-      const updatedOrder = await updateStatus(id, newStatus);
+      await updateStatus(id, newStatus);
       alert("Cập nhật trạng thái thành công!");
       navigate("/admin/order");
     } catch (err) {
